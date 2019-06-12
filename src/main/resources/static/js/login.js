@@ -34,3 +34,8 @@ function checkPassword(){
 	$('#password-msg').empty();
 	return true;
 }
+
+function submit() {
+    document.getElementById("Login").submit();
+    console.log("test---->");
+}
