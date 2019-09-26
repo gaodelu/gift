@@ -1,0 +1,43 @@
+﻿<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>丷糯米团丷</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/login.css"/>
+</head>
+<body>
+<div class="page">
+    <div id="app" class="loginwarrp">
+        <div class="logo">用户登录</div>
+        <div class="login_form">
+            <li class="login-item">
+                <span>用户名：</span>
+                <input type="text" v-model="user.username" class="login_input" @blur="checkUserName">
+                <span id="count-msg" class="error"></span>
+            </li>
+            <li class="login-item">
+                <span>密　码：</span>
+                <input type="password" v-model="user.password" class="login_input" @blur="checkPwd">
+                <span id="password-msg" class="error"></span>
+            </li>
+            <!--<li class="login-item verify">
+                <span>验证码：</span>
+                <input type="text" name="CheckCode" class="login_input verify_input">
+            </li>
+            <img src="images/verify.png" border="0" class="verifyimg" />
+            <div class="clearfix"></div> -->
+            <li class="login-sub">
+                <input type="button" @click="save" value="登录"/>
+                <input type="button" value="重置"/>
+            </li>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/common/vue.js"></script>
+<script type="text/javascript" src="js/common/jquery.min.js"></script>
+<script type="text/javascript" src="js/canvas-particle.js"></script>
+<script type="text/javascript" src="js/common/encrypt.js"></script>
+<script type="text/javascript" src="js/login.js"></script>
+</body>
+</html>
