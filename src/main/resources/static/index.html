@@ -5,19 +5,23 @@
     <title>丷糯米团丷</title>
     <link rel="stylesheet" href="css/reset.css"/>
     <link rel="stylesheet" href="css/login.css"/>
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/common/jquery.min.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/canvas-particle.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
 <body>
 <div class="page">
     <div class="loginwarrp">
-        <div class="logo">会员登陆</div>
+        <div class="logo">用户登录</div>
         <div class="login_form">
-            <form id="Login" name="Login" method="post" onsubmit="" action="">
+            <form id="Login" name="Login" method="post" onsubmit="" action="/LoginController/login">
                 <li class="login-item">
                     <span>用户名：</span>
-                    <input type="text" id="username" name="UserName" class="login_input">
+                    <input type="text" id="username" name="userName" class="login_input">
                     <span id="count-msg" class="error"></span>
                 </li>
                 <li class="login-item">
@@ -32,7 +36,7 @@
                 <img src="images/verify.png" border="0" class="verifyimg" />
                 <div class="clearfix"></div> -->
                 <li class="login-sub">
-                    <input type="submit" name="Submit"  value="登录"/>
+                    <input type="submit" name="Submit" value="登录"/>
                     <input type="reset" name="Register" value="重置"/>
                 </li>
             </form>

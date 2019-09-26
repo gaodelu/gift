@@ -1,10 +1,14 @@
 package com.mochi.springboot.gift.login;
 
-import com.mochi.springboot.gift.common.webUtils.BaseController;
+import com.mochi.springboot.gift.common.utils.webUtils.BaseController;
+import com.mochi.springboot.gift.cust.UserInfo;
+import com.mochi.springboot.gift.cust.UserInfoService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -16,8 +20,12 @@ public class LoginController extends BaseController {
 
     Log logger = LogFactory.getLog(this.getClass());
 
+    @Autowired
+    private UserInfoService userInfoService;
+
     @RequestMapping(value = "/login")
-    public Map<String, Object> login(String userName, String password) {
+    public Map<String, Object> login(@RequestParam("userName") String userName, @RequestParam("password") String password) {
+        logger.info("Login Start");
         if (StringUtils.isEmpty(userName)) {
             logger.info("请求的用户名为空");
         }
@@ -29,6 +37,8 @@ public class LoginController extends BaseController {
         } else {
             logger.info("Login Denied");
         }
+        UserInfo userInfo = userInfoService.findByUserName(userName);
+        logger.info(userInfo.getPassword());
         return new HashMap<>();
     }
 }
