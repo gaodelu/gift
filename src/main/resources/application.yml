@@ -12,3 +12,4 @@ spring:
 mybatis:
   mapper-locations: classpath:static/mapper/*Mapping.xml
   type-aliases-package: com.mochi.springboot.gift.*
+
