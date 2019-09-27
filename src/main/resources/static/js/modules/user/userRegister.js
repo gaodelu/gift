@@ -4,12 +4,14 @@ var vm = new Vue({
         user: {
             username: '',
             password: '',
-            passwordDec: ''
+            passwordDec: '',
+            email: '',
+            sex: '',
+            phoneNumber: '',
+            nickName: ''
         },
         usernameErrorShow: false,
-        usernameErrorMsg: "用户名不能为空",
-        passwordErrorShow: false,
-        passwordErrorMsg: "密码不能为空"
+        usernameErrorMsg: "用户名必填"
     },
     created: function () {
         console.log("vue created successfully");
@@ -29,23 +31,15 @@ var vm = new Vue({
     },
     methods: {
         checkUserName: function () {
-            vm.usernameErrorShow = false;
             if (vm.user.username == null || vm.user.username == '') {
-                vm.usernameErrorShow = true;
-                vm.usernameErrorMsg = "用户名不能为空";
-                return false;
+                console.log('username cannot be null');
             }
-            return true;
         },
         checkPwd: function () {
-            vm.passwordErrorShow = false;
-            if (vm.user.passwordDec == null || vm.user.passwordDec == '') {
-                vm.passwordErrorShow = true;
-                vm.passwordErrorMsg = "密码不能为空"
-                return false;
+            if (vm.user.password == null || vm.user.password == '') {
+                console.log('password cannot be null');
             }
             vm.user.password = Base64.encode(vm.user.passwordDec);
-            return true;
         },
         login: function () {
             vm.user.passwordDec = Base64.encode(vm.user.passwordDec);
@@ -57,17 +51,13 @@ var vm = new Vue({
                 data: JSON.stringify(vm.user),
                 success: function (r) {
                     console.log(r)
-                    if (r.head.retCode == '00000') {
+                    if (r.retCode == '00000') {
                         window.location.href = '/views/main.html';
-                        alert(r.body.loginId)
                     } else {
-                        alert(r.head.retMsg);
+                        alert(r.retMsg);
                     }
                 }
             })
-        },
-        register: function () {
-
         }
     }
 })

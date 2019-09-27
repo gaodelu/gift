@@ -15,5 +15,16 @@ public class UserInfo {
 
     private String username;//登录用户名
 
-    private String password;//密码  (改用BASE64加密)
+    private String password;//密码
+/*
+
+    private int sex; //性别  0-男,1-女
+
+    private String email;//邮箱
+
+    private String mobile;//手机号
+
+    private String nickName;//昵称
+*/
+
 }

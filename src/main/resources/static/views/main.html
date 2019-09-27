@@ -1,10 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Main</title>
+    <title>糯米之家</title>
+    <link rel="stylesheet" href="../css/modules/main.css"/>
 </head>
-<body>
-Hello World!
+<body style="background-image: url(first1.jpg);background-size: 100%">
+<div style="background-color: #f5f7fa;opacity:0.5;">
+    <input type="button" class="welcomeMenu" value="论坛"/>
+    <input type="button" class="welcomeMenu" value="博客"/>
+    <input type="button" class="welcomeMenu" value="我的空间"/>
+    <input type="button" class="welcomeMenu" value="新闻"/>
+    <input type="button" class="welcomeMenu" onclick="$('#baidu').load('main.html')" value="百度一下"/>
+</div>
+<div id="baidu" align="middle">
+</div>
+<script type="text/javascript" src="../js/common/jquery.min.js"></script>
 </body>
 </html>

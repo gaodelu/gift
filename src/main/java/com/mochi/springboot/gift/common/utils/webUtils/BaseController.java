@@ -11,12 +11,17 @@ public class BaseController {
         Map<String, Object> head = new HashMap<>();
         head.put("retCode", "00000");
         head.put("retMsg", "处理成功");
-        return head;
+        Map<String, Object> result = new HashMap<>();
+        result.put("head", head);
+        return result;
     }
 
     public Map<String, Object> success(Object obj) {
+        Map<String, Object> head = new HashMap<>();
+        head.put("retCode", "00000");
+        head.put("retMsg", "处理成功");
         Map<String, Object> result = new HashMap<>();
-        result.put("head", success());
+        result.put("head", head);
         result.put("body", obj);
         return result;
     }

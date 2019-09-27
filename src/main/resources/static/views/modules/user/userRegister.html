@@ -1,35 +1,39 @@
-﻿<html>
+<html>
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>丷糯米团丷</title>
-    <link rel="stylesheet" href="css/reset.css"/>
-    <link rel="stylesheet" href="css/login.css"/>
+    <link rel="stylesheet" href="/css/reset.css"/>
+    <link rel="stylesheet" href="/css/login.css"/>
 </head>
 <body>
 <div class="page">
     <div id="app" class="loginwarrp">
-        <div class="logo">用户登录</div>
+        <div class="logo">用户注册</div>
         <div class="login_form">
             <li class="login-item">
                 <span>用户名：</span>
                 <input type="text" v-model="user.username" class="login_input" @blur="checkUserName">
-                <span v-show="usernameErrorShow" class="error">{{usernameErrorMsg}}</span>
+                <span if-show="usernameErrorShow" class="error">{{usernameErrorMsg}}</span>
             </li>
             <li class="login-item">
                 <span>密　码：</span>
                 <input type="password" v-model="user.passwordDec" class="login_input" @blur="checkPwd">
-                <span v-show="passwordErrorShow" class="error">{{passwordErrorMsg}}</span>
+                <span id="password-msg" class="error"></span>
             </li>
-            <!--<li class="login-item verify">
-                <span>验证码：</span>
-                <input type="text" name="CheckCode" class="login_input verify_input">
+            <li class="login-item">
+                <span>确认密码：</span>
+                <input type="password" v-model="user.passwordAgainDec" class="login_input" @blur="checkPwdAgain">
+                <span if-show="true" class="error"></span>
             </li>
-            <img src="images/verify.png" border="0" class="verifyimg" />
-            <div class="clearfix"></div> -->
+            <li class="login-item">
+                <span>邮箱：</span>
+                <input type="password" v-model="user.email" class="login_input" @blur="checkPwdAgain">
+                <span if-show="true" class="error"></span>
+            </li>
             <li class="login-sub">
-                <input type="button" @click="login" value="登录"/>
-                <input type="button" @click="register" value="注册"/>
+                <input type="button" @click="save" value="保存"/>
+                <input type="button" @click="return" value="返回"/>
             </li>
         </div>
     </div>
@@ -38,6 +42,6 @@
 <script type="text/javascript" src="js/common/jquery.min.js"></script>
 <script type="text/javascript" src="js/canvas-particle.js"></script>
 <script type="text/javascript" src="js/common/encrypt.js"></script>
-<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript" src="js/modules/user/userRegister.js"></script>
 </body>
 </html>

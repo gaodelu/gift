@@ -3,7 +3,7 @@ package com.mochi.springboot.gift.cust;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("UserInfoService")
 public class UserInfoService {
 
     @Autowired
